@@ -1,0 +1,258 @@
+
+/* =================================
+   GLASSMORPHISM BIRTHDAY WEBSITE
+================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: #75415f;
+    background:
+        radial-gradient(circle at 15% 20%, #ffb9d8, transparent 35%),
+        radial-gradient(circle at 85% 25%, #c9b5ff, transparent 35%),
+        radial-gradient(circle at 50% 90%, #ffcce8, transparent 40%),
+        linear-gradient(135deg, #fce4f1, #e9ddff, #ffeaf3);
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+/* BACKGROUND DECORATION */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.55;
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::before {
+    background: #ff8fca;
+    top: 10%;
+    left: -100px;
+}
+
+body::after {
+    background: #a98aff;
+    bottom: 5%;
+    right: -100px;
+}
+
+/* MAIN CONTAINER */
+
+.container {
+    width: 90%;
+    max-width: 850px;
+    margin: auto;
+    padding: 90px 0 50px;
+    text-align: center;
+}
+
+/* GLASS CARDS */
+
+.screen {
+    display: none;
+    min-height: 450px;
+    padding: 45px 30px;
+
+    background: rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 30px;
+
+    box-shadow:
+        0 8px 32px rgba(120, 70, 150, 0.12),
+        inset 0 1px 1px rgba(255, 255, 255, 0.7);
+
+    animation: glassAppear 0.6s ease;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes glassAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HEADINGS */
+
+h1 {
+    color: #c34f91;
+    font-size: clamp(25px, 5vw, 36px);
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #b35a9b;
+    margin: 20px 0;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.9;
+    margin: 15px 0;
+}
+
+/* GLASS BUTTONS */
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 50px;
+    padding: 13px 25px;
+    margin: 8px;
+
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 125, 185, 0.9),
+        rgba(174, 133, 255, 0.9)
+    );
+
+    box-shadow:
+        0 5px 20px rgba(213, 113, 183, 0.25),
+        inset 0 1px 2px rgba(255,255,255,0.5);
+
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(190, 100, 180, 0.35);
+}
+
+/* MUSIC BUTTON */
+
+#musicBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+}
+
+/* PHOTOS */
+
+.screen img {
+    width: 100%;
+    max-width: 350px;
+    max-height: 400px;
+    object-fit: contain;
+    display: block;
+    margin: 25px auto;
+    padding: 9px;
+
+    background: rgba(255,255,255,0.4);
+    border: 1px solid white;
+    border-radius: 25px;
+
+    box-shadow: 0 10px 30px rgba(180, 100, 160, 0.2);
+}
+
+/* GAME OPTIONS */
+
+.game-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 350px;
+    margin: 25px auto;
+}
+
+.game-options button {
+    min-height: 70px;
+    font-size: 25px;
+}
+
+/* MEMORY GAME */
+
+#memoryGame {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-width: 350px;
+    margin: 25px auto;
+}
+
+.memory-card {
+    min-height: 65px;
+    font-size: 25px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.35);
+    border: 1px solid rgba(255,255,255,0.8);
+    color: #b65b9b;
+    backdrop-filter: blur(15px);
+}
+
+.memory-card.matched {
+    background: rgba(190, 255, 210, 0.5);
+}
+
+/* CONFETTI */
+
+.confetti {
+    position: fixed;
+    top: -30px;
+    font-size: 25px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 500px) {
+    .container {
+        width: 94%;
+        padding-top: 85px;
+    }
+
+    .screen {
+        padding: 35px 18px;
+        min-height: 400px;
+    }
+
+    #memoryGame {
+        gap: 7px;
+    }
+
+    .memory-card {
+        min-height: 55px;
+        font-size: 21px;
+    }
+}

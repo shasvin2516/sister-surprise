@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Surprise For You ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button id="musicBtn" onclick="toggleMusic()">♫ Play Music</button>
+
+<audio id="bgMusic" loop>
+    <source src="song/song.mp3" type="audio/mpeg">
+</audio>
+
+<main class="container">
+
+    <!-- WELCOME -->
+    <section id="welcome" class="screen active">
+        <h1>Hey, Sis! 💗</h1>
+        <p>I prepared something special for you.</p>
+        <p>Complete all the games to unlock your surprises!</p>
+        <button onclick="startGame(1)">Let's Begin ✨</button>
+    </section>
+
+    <!-- GAME 1 -->
+    <section id="game1" class="screen">
+        <h1>Game 1 ❤️</h1>
+        <p>Catch 5 hearts!</p>
+        <h2 id="heartScore">0 / 5</h2>
+        <button onclick="catchHeart()">❤️ Catch Me!</button>
+    </section>
+
+    <!-- PHOTO 1 -->
+    <section id="photo1" class="screen">
+        <h1>First Surprise! 🌸</h1>
+        <img src="pictures/photo1.jpg" alt="First memory">
+        <p>A little memory just for you ❤️</p>
+        <button onclick="startGame(2)">Next Game →</button>
+    </section>
+
+    <!-- GAME 2 -->
+    <section id="game2" class="screen">
+        <h1>Game 2 🧠</h1>
+        <p>Find all matching emojis!</p>
+        <div id="memoryGame"></div>
+        <p id="memoryStatus">Find all matching pairs!</p>
+    </section>
+
+    <!-- PHOTO 2 -->
+    <section id="photo2" class="screen">
+        <h1>Another Memory! 💕</h1>
+        <img src="pictures/photo2.jpg" alt="Second memory">
+        <p>Some memories are priceless.</p>
+        <button onclick="startGame(3)">Next Game →</button>
+    </section>
+
+    <!-- GAME 3 -->
+    <section id="game3" class="screen">
+        <h1>Game 3 🎂</h1>
+        <p>Find the birthday cake!</p>
+        <div class="game-options">
+            <button onclick="checkCake(false)">🎀</button>
+            <button onclick="checkCake(true)">🎂</button>
+            <button onclick="checkCake(false)">🌸</button>
+            <button onclick="checkCake(false)">⭐</button>
+        </div>
+        <p id="cakeStatus">Choose the correct emoji!</p>
+    </section>
+
+    <!-- PHOTO 3 -->
+    <section id="photo3" class="screen">
+        <h1>Third Surprise! 🥹</h1>
+        <img src="pictures/photo3.jpg" alt="Third memory">
+        <p>Another beautiful memory with you.</p>
+        <button onclick="startGame(4)">Final Game →</button>
+    </section>
+
+    <!-- GAME 4 -->
+    <section id="game4" class="screen">
+        <h1>Sister Quiz 💗</h1>
+        <p>What makes our family special?</p>
+
+        <div class="game-options">
+            <button onclick="finishQuiz()">Love ❤️</button>
+            <button onclick="wrongQuiz()">Money 💰</button>
+            <button onclick="wrongQuiz()">Food 🍕</button>
+            <button onclick="wrongQuiz()">Nothing 😂</button>
+        </div>
+
+        <p id="quizStatus"></p>
+    </section>
+
+    <!-- PHOTO 4 -->
+    <section id="photo4" class="screen">
+        <h1>Almost There! 🌷</h1>
+        <img src="pictures/photo4.jpg" alt="Fourth memory">
+        <p>I'm lucky to have you in my life. 💗</p>
+        <button onclick="showScreen('photo5')">One More Surprise →</button>
+    </section>
+
+    <!-- PHOTO 5 -->
+    <section id="photo5" class="screen">
+        <h1>One Last Picture! 🥹</h1>
+        <img src="pictures/photo5.jpg" alt="Fifth memory">
+        <p>And now, your final surprise awaits...</p>
+        <button onclick="showWish()">Unlock Your Wish 🎁</button>
+    </section>
+
+    <!-- FINAL WISH -->
+    <section id="finalWish" class="screen">
+        <h1>Happy Birthday, Sis! 🎂</h1>
+        <h2>💗 You Are So Special! 💗</h2>
+
+        <p>
+            Thank you for being an amazing sister.
+            I hope your life is always filled with happiness,
+            laughter and beautiful memories.
+            No matter what happens, I'll always be cheering
+            for you.
+        </p>
+
+        <h2>Love You, Sis! ❤️</h2>
+        <p>You completed all 4 games! 🎉</p>
+
+        <button onclick="showScreen('welcome')">Play Again 💕</button>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
